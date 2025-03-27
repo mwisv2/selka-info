@@ -29,7 +29,7 @@ export default function Home() {
       </ul>
 
       <p>
-        We are improve Selka everyday.
+        We are constantly improving Selka. Stay tuned for updates!
       </p>
     </div>
   )
