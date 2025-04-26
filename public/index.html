@@ -3,42 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Selka?</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <title>Why Selka? | AI-Powered Fitness</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #f9fafb;
+            --card: #ffffff;
+            --accent: #f43f5e;
+            --border: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .content {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 2rem 0 1.2rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        
+        ul {
+            margin: 1.5rem 0 2rem 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+            color: var(--text);
+        }
+        
+        .feature-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .signature {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .signature img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .founder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .founder-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .founder-name {
+            font-weight: 700;
+        }
+        
+        .founder-title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .back-button {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        .back-button svg {
+            margin-right: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 60px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+                margin-top: -40px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .signature {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="date-badge">March 27, 2025</div>
+            <h1 class="logo">SELKA</h1>
+            <p class="tagline">An AI-powered fitness experience that adapts to you</p>
+        </div>
+    </div>
+    
     <div class="container">
-        <article class="blog-post">
-            <header>
-                <h1>why selka?</h1>
-                <p class="meta">March 27, 2025 <span class="tag">fitness</span></p>
-            </header>
-            <section class="content">
-                <p>
-                    selka started as a CREST project, but it quickly became something much bigger. our goal was simple: create an app that designs personalized workouts using AI. but we didn’t stop there. we refined it, expanded its capabilities, and made it better every day to ensure that users get the most effective and engaging fitness experience possible.
-                </p>
-                <p>
-                    unlike generic workout apps, selka doesn’t just give you a preset routine. instead, it tailors each workout based on your unique profile, including:
-                </p>
-                <ul>
-                    <li>body weight and height – so exercises scale to your physique.</li>
-                    <li>available equipment – no gym? no problem. selka works with what you have.</li>
-                    <li>experience level – from beginner to pro, workouts evolve with you.</li>
-                    <li>personal goals – whether you want strength, endurance, or flexibility, selka adjusts.</li>
-                    <li>daily updates – workouts are refreshed every day for maximum variety and progress.</li>
-                </ul>
-                <h2>what makes selka different?</h2>
-                <ul>
-                    <li>personalized adjustments: the ML adapts your workouts based on your progress, ensuring they stay challenging but achievable.</li>
-                    <li>continuous improvement: by analyzing your performance and feedback, selka fine-tunes your routines over time.</li>
-                    <li>real-time feedback: it provides instant adjustments to ensure you’re always moving in the right direction.</li>
-                    <li>preventing burnout: the AI keeps the intensity balanced, preventing both plateaus and overtraining.</li>
-                </ul>
-                <p>i am constantly improving selka.</p>
-                <p>-zc    </p>
-            </section>
-        </article>
+        <div class="content">
+            <span class="tag">fitness</span>
+            <span class="tag">AI</span>
+            <span class="tag">personalization</span>
+            
+            <h1>Why Selka?</h1>
+            
+            <p>
+                Selka began as an ambitious CREST project, but quickly evolved into something far more significant. Our vision was straightforward yet revolutionary: develop an application that leverages artificial intelligence to create truly personalized workout routines. But we didn't stop at the initial concept—we continuously refined the system, expanded its capabilities, and enhanced its performance to deliver the most effective and engaging fitness experience possible.
+            </p>
+            
+            <p>
+                Unlike conventional workout applications that offer generic, one-size-fits-all routines, Selka takes a fundamentally different approach. It analyzes your unique profile and creates custom workouts based on:
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-title">Body Metrics</div>
+                    <div class="feature-desc">Workout routines that scale perfectly to your unique physique and proportions</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-title">Available Equipment</div>
+                    <div class="feature-desc">No gym? No problem. Selka adapts to whatever equipment you have access to</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-title">Experience Level</div>
+                    <div class="feature-desc">From beginner to advanced, workouts evolve as your fitness journey progresses</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-title">Personal Goals</div>
+                    <div class="feature-desc">Whether strength, endurance, or flexibility, Selka optimizes for your specific objectives</div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h2>What Makes Selka Different?</h2>
+            
+            <p>
+                At its core, Selka isn't just another fitness app—it's an intelligent training partner that grows with you. Here's what sets us apart:
+            </p>
+            
+            <ul>
+                <li><strong>Adaptive Intelligence:</strong> Our machine learning system continuously adjusts your workouts based on your progress, ensuring they remain challenging yet achievable.</li>
+                <li><strong>Continuous Improvement:</strong> By analyzing performance data and user feedback, Selka refines and optimizes your routines over time to maximize results.</li>
+                <li><strong>Real-time Feedback:</strong> Instant adjustments and recommendations keep you moving in the right direction, minimizing plateaus and maximizing gains.</li>
+                <li><strong>Smart Recovery Management:</strong> The AI carefully balances intensity across your training schedule, preventing both overtraining and undertraining.</li>
+                <li><strong>Daily Variety:</strong> Fresh workout routines every day keep your training engaging and target muscle groups optimally.</li>
+            </ul>
+            
+            <p>
+                Selka represents a fundamental shift in fitness technology—away from generic programs and toward truly personalized training that evolves with your body, goals, and lifestyle.
+            </p>
+            
+            <div class="signature">
+                <div class="founder">
+                    <div class="founder-info">
+                        <span class="founder-name">ZC</span>
+                        <span class="founder-title">Founder, Selka</span>
+                    </div>
+                </div>
+                
+                <a href="/" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Main Website
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
